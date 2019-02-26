@@ -1,49 +1,94 @@
+import java.awt.*;
+
 /**
  * Class day18 ...
  *
  * @author LiJun
- * Created on 2019/1/19
+ * Created on 2019/1/22
  */
 public class day18 {
 
-    private static double Power(double base, int exponent) {
-        // 0 的0 次方没有意义
-        if (base == 0 && exponent == 0) {
-            return 0;
-        }
-        // 任何数的 0 次方 等于 1
-        if (exponent == 0) {
-            return 1;
-        }
-        // 指数小于0
-        if (exponent < 0) {
-            base = 1 / base;
-            exponent = -exponent;
+    private static class ListNode{
+        int m_nValue;
+         ListNode next;
+
+        public ListNode() {
+            this.next = null;
         }
 
-        return powerWithResult(base, exponent);
+        @Override
+        protected void finalize() {
+            try {
+                super.finalize();
+            } catch (Throwable throwable) {
+                throwable.printStackTrace();
+            }
+        }
     }
 
-    private static double powerWithResult(double base, int exponent) {
-        if (exponent == 0) {
-            return 1;
+    private static void deleteNode(ListNode listHead, ListNode pToDeleted){
+        if(pToDeleted == null || listHead == null){
+            return;
         }
-        if (exponent == 1) {
-            return base;
+        // 先判断要删除的节点是不是尾节点，如果不是就删除节点
+        if(pToDeleted.next != null){
+            pToDeleted.m_nValue = pToDeleted.next.m_nValue;
+            pToDeleted.next = pToDeleted.next.next;
         }
-        double result = powerWithResult(base, exponent >> 1);
-        result = result * result;
-        if ((exponent & 0x1) == 1) {
-            result *= base;
+        // 判断链表中的节点是不是只有一个
+        else if(listHead == pToDeleted){
+            listHead = pToDeleted = null;
         }
-        return result;
-
+        // 链表中有多个节点，删除尾节点
+        else {
+            ListNode pNode = listHead;
+            while(pNode.next != pToDeleted){
+                pNode = pNode.next;
+            }
+            pNode.next = null;
+        }
+    }
+    private static void print(ListNode node){
+        while(node != null){
+            System.out.print(node.m_nValue + " ");
+            node = node.next;
+        }
+        System.out.println();
     }
 
     public static void main(String[] args) {
-        System.out.println(Power(0, 0));
-        System.out.println(Power(5, 0));
-        System.out.println(Power(-5, -1));
-        System.out.println(Power(5, -4));
+        ListNode node1 = new ListNode();
+        ListNode node2 = new ListNode();
+        ListNode node3 = new ListNode();
+        ListNode node4 = new ListNode();
+        ListNode node5 = new ListNode();
+        ListNode node6 = new ListNode();
+        ListNode node7 = new ListNode();
+        ListNode node8 = new ListNode();
+        node1.m_nValue = 1;node1.next = node2;
+        node2.m_nValue = 2;node2.next = node3;
+        node3.m_nValue = 3;node3.next = node4;
+        node4.m_nValue = 4;node4.next = node5;
+        node5.m_nValue = 5;node5.next = node6;
+        node6.m_nValue = 6;node6.next = node7;
+        node7.m_nValue = 7;node7.next = node8;
+        node8.m_nValue = 8;
+        print(node1);
+        // 删除头结点
+        deleteNode(node1, node1);
+        print(node1);
+        // 删除中间节点
+        deleteNode(node1, node3);
+        print(node1);
+        // 删除尾节点
+        deleteNode(node1,node8);
+        print(node1);
+        // 只有一个节点且删除 目前不成立
+
+        ListNode node9 = new ListNode();
+        node9.m_nValue = 9;
+        deleteNode(node9, node9);
+
+        print(node9);
     }
 }

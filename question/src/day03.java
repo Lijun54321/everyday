@@ -65,7 +65,7 @@ public class day03 {
             a[i] = scanner.nextInt();
         }
         // duplicate(a, n);
-        test3(a, n);
+        test5(a, n);
     }
 
     public static void test3(int[] a, int len) {
@@ -106,6 +106,18 @@ public class day03 {
             }
         }
         return false;
+    }
+
+    public static void test5(int[] a, int len) {
+        String string = Arrays.toString(a);
+
+        for(int i = 0; i < len ; i++){
+            if(string.indexOf(a[i]+"") != string.lastIndexOf(a[i]+"")){
+                System.out.println(a[i]);
+                return;
+            }
+
+        }
     }
 
 }
