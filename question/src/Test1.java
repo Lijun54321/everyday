@@ -1,7 +1,3 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-
 /**
  * Class Test1 ...
  *
@@ -13,7 +9,6 @@ public class Test1 {
         for (int j = 0; j < 10; j++) {
             int a = 1;
             int b = 1;
-
             for (int i = 2; i <= j; i++) {
                 b = a + b;
                 a = b - a;
