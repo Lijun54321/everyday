@@ -43,12 +43,10 @@ public class Test {
             for (int j = 0; j < length; j++) {
 
                 if (!find[j] && dis[j] < minValue && dis[j] != -1) {
-                    System.out.println("asda");
                     minValue = dis[j];
                     minIndex = j;
                 }
             }
-            System.out.println("minindex=" + minIndex + " minValue=" + minValue);
             find[minIndex] = true;
             for (int j = 0; j < length; j++) {
                 if (!find[j] && array[minIndex][j] > 0 && dis[j] > dis[minIndex] + array[minIndex][j]) {
