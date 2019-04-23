@@ -29,12 +29,12 @@ public class day12旋转数组中的最小数字 {
             }
             medium = (start + end) / 2;
             // 这里是特殊情况 如果这三者相等的话，就只能老老实实的顺序查找了
-            if(numbers[start] == numbers[medium] && numbers[medium]  == numbers[end]){
+            if (numbers[start] == numbers[medium] && numbers[medium] == numbers[end]) {
                 return GetMinInOrder(numbers, start, end);
             }
-            if(numbers[medium] >= numbers[end]){
+            if (numbers[medium] >= numbers[end]) {
                 start = medium;
-            }else if(numbers[medium] <= numbers[end]){
+            } else if (numbers[medium] <= numbers[end]) {
                 end = medium;
             }
         }
@@ -43,8 +43,8 @@ public class day12旋转数组中的最小数字 {
 
     public static int GetMinInOrder(int[] numbers, int start, int end) {
         int min = numbers[start];
-        for(int i = start+1; i <= end; i++){
-            if(numbers[i] < min){
+        for (int i = start + 1; i <= end; i++) {
+            if (numbers[i] < min) {
                 min = numbers[i];
             }
         }
@@ -53,9 +53,31 @@ public class day12旋转数组中的最小数字 {
 
     public static void main(String[] args) {
         // 基础测试
-        int[] numbers = {3,4,5,1,2};
+        int[] numbers = {3, 4, 5, 1, 2};
         System.out.println(Min(numbers));
         numbers = new int[]{1, 0, 1, 1, 1};
         System.out.println(Min(numbers));
+    }
+}
+
+class Solution1 {
+    private int solution(int[] array){
+        int start = 0;
+        int end = array.length-1;
+        int mid = 0;
+        while(start < end){
+            if(array[start] < array[end]){
+                return array[start];
+            }
+            mid = (end - start) >> 2 +start;
+            if(array[start] < array[mid]){
+                start = mid;
+            }else if(array[mid] < array[end]){
+                end = mid;
+            }else {
+                start++;
+            }
+        }
+        return array[start];
     }
 }

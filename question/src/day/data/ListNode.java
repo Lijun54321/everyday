@@ -43,4 +43,14 @@ public class ListNode {
         }
         System.out.println();
     }
+    public static ListNode getInstance(int[] array){
+        ListNode root = null;
+        for(int i : array){
+            ListNode p = new ListNode(i);
+            p.next = root;
+            root = p;
+        }
+        return root;
+
+    }
 }

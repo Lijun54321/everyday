@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="test" />
+        <module name="designmode" />
+        <module name="sort" />
+        <module name="data-structure" />
+        <module name="algorithm" />
+        <module name="search" />
+        <module name="juc" />
+        <module name="leetcode" />
+        <module name="data-tructure" />
+        <module name="examination" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="algorithm" target="1.8" />
+      <module name="data" target="1.8" />
+      <module name="data-structure" target="1.8" />
+      <module name="data-tructure" target="1.8" />
+      <module name="designmode" target="1.8" />
+      <module name="examination" target="1.8" />
+      <module name="juc" target="1.8" />
+      <module name="leetcode" target="1.8" />
+      <module name="search" target="1.8" />
+      <module name="sort" target="1.8" />
+      <module name="test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
