@@ -18,7 +18,6 @@ public class Test {
                 {2, 6, 1, 3, 4, 9}};
     }
 
-
     public static int dijkstra(int[][] array, int v0, int[] path) {
         // 参数有效性检测
         if (array == null || array.length <= 0 || array[0].length <= 0 && v0 > 0) {

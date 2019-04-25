@@ -46,6 +46,7 @@ public class 序列化和反序列话一颗二叉树 {
         int index = -1;
 
         private TreeNode preOrderDeserialize(String[] str) {
+            index++;
             if (!"#".equals(str[index])) {
                 TreeNode root = new TreeNode(Integer.parseInt(str[index]));
                 root.left = preOrderDeserialize(str);
@@ -55,6 +56,5 @@ public class 序列化和反序列话一颗二叉树 {
             return null;
         }
     }
-
 
 }
