@@ -23,7 +23,7 @@ public class ListNode {
                 '}';
     }
 
-    public static ListNode createNode1(){
+    public static ListNode createNode1() {
         ListNode head = new ListNode(1);
         head.next = new ListNode(2);
         head.next.next = new ListNode(3);
@@ -36,6 +36,7 @@ public class ListNode {
         // head.next.next.next.next.next.next.next.next = new ListNode(9);
         return head;
     }
+
     public static void print(ListNode head) {
         while (head != null) {
             System.out.print(head.val + " ");
@@ -43,14 +44,15 @@ public class ListNode {
         }
         System.out.println();
     }
-    public static ListNode getInstance(int[] array){
+
+    public static ListNode getInstance(int[] array) {
         ListNode root = null;
-        for(int i : array){
+        for (int i : array) {
             ListNode p = new ListNode(i);
             p.next = root;
             root = p;
         }
         return root;
-
     }
+
 }
