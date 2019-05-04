@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
- * Class Main ...
+ * Class Main1 ...
  *
  * @author LiJun
  * Created on 2019/4/14
